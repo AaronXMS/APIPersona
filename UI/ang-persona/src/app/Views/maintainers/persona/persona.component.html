@@ -1,0 +1,63 @@
+<div class="container-fluid ">
+    <div class="col-md-12">
+      <div>
+        <div class="header ">
+          <h5 class="title line-title-format">CRUD Persona</h5>
+        </div>
+         <div class="m-2 card">
+          <form class="m-2" [formGroup]="formFilter">
+            <div class="mb-2">
+                <label for="buscar" class="form-label">Buscar</label>
+                <input type="text" class="form-control" id="buscar" placeholder="Ingresa busqueda" formControlName="buscar">
+              </div>
+              <button type="button" class="btn btn-primary ms-2" (click)="nuevo()">Nuevo</button>
+              <button type="button" class="btn btn-info ms-2" (click)="buscar()">Buscar</button>
+              <button type="button" class="btn btn-secondary ms-2" (click)="limpiar()">Limpiar</button>
+          </form>
+        </div>
+
+        <div class="col-md-12 d-flex justify-content-end mb-2">          
+            <div class="btn-group">
+              
+            </div>
+          </div>
+
+       
+        <div class="container-fluid">
+          <div class="card" style="padding: 0 1%;">
+            <div class="table-responsive tbodyDiv">
+              <table class="mt-4 table table-striped table-bordered">
+                <thead>
+                  <tr>
+                    <th scope="col" class="text-uppercase text-secondary font-weight-bolder opacity-7">Nombre</th>
+                    <th scope="col" class="text-uppercase text-secondary font-weight-bolder opacity-7">Apellido</th>
+                    <th scope="col" class="text-uppercase text-secondary font-weight-bolder opacity-7">Edad</th>
+                    <th scope="col" class="text-uppercase text-secondary font-weight-bolder opacity-7"></th>
+                  </tr>
+                </thead>
+                <tbody style="font-size: 0.8rem !important; color: #6c757d;">
+                  <tr *ngFor="let row of personas">
+                    <td>{{row.nombre}}</td>
+                    <td>{{row.apellido}}</td>
+                    <td>{{row.edad}}</td>
+                    <td class="text-center">
+                        <button type="button" class="btn btn-outline-warning" (click)="editar(row)">Editar</button>
+                        <button type="button" class="btn btn-outline-danger ms-2" (click)="eliminar(row)">Eliminar</button>
+                    </td>
+                  </tr>
+                  <tr *ngIf="personas.length == 0">
+                    <td class="text-center text-uppercase text-secondary font-weight-bolder opacity-7" colspan=4>
+                      No se han encontrado registros</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+
+
+      </div>
+    </div>
+
+  </div>
+

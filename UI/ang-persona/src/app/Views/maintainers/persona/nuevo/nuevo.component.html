@@ -1,0 +1,62 @@
+<div class="main-content">
+    <div class="container-fluid margin-botton-5">
+        <div class="col-md-12 col-xs-12 col-lg-12">
+            <div class="modal-header col-md-12 col-xs-12 col-lg-12 line-title-format">
+                <h2 class="title">{{title}} Persona</h2>
+                <button type="button" class="close btn btn-danger btn-sm" aria-label="Close" (click)="doHide()">cerrar</button>
+            </div>
+            <div class="content m-10 card padding-input">
+                <form [formGroup]="formPersona" #f="ngForm">
+                    <div class="row col-xs-12 col-md-12 col-lg-12 pb-1">
+
+
+                        <div class="col-md-4 col-lg-4 col-xs-12 mb-3">
+                            <label class="form-label">Nombre</label>
+                            <div class="input-group">
+                                <input required
+                                    [ngClass]="{ 'is-invalid': formPersona.get('nombre')?.errors && formPersona.get('nombre')?.invalid && (formPersona.get('nombre')?.dirty || formPersona.get('nombre')?.touched) }"
+                                    formControlName="nombre" class="form-control" placeholder="Nombre de persona" type="text">
+                                <div *ngIf="formPersona.get('nombre')?.errors && formPersona.get('nombre')?.invalid && (formPersona.get('nombre')?.dirty || formPersona.get('nombre')?.touched) "
+                                    class="invalid-feedback">
+                                    Campo obligatorio.
+                                </div>
+                            </div>
+                        </div>      
+                        <div class="col-md-4 col-lg-4 col-xs-12 mb-3">
+                            <label class="form-label">Apellido</label>
+                            <div class="input-group">                                
+                                <input required
+                                    [ngClass]="{ 'is-invalid': formPersona.get('apellido')?.errors && formPersona.get('apellido')?.invalid 
+                                    && (formPersona.get('apellido')?.dirty || formPersona.get('apellido')?.touched) }"
+                                    formControlName="apellido" class="form-control" placeholder="Apellido de persona" type="text">
+                                <div *ngIf="formPersona.get('apellido')?.errors && formPersona.get('apellido')?.invalid && (formPersona.get('apellido')?.dirty || formPersona.get('apellido')?.touched) "
+                                    class="invalid-feedback">
+                                    Campo obligatorio.
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-4 col-lg-4 col-xs-12 mb-3">
+                            <label class="form-label">Edad</label>
+                            <div class="input-group">                                
+                                <input required
+                                    [ngClass]="{ 'is-invalid': formPersona.get('edad')?.errors && formPersona.get('edad')?.invalid 
+                                    && (formPersona.get('edad')?.dirty || formPersona.get('edad')?.touched) }"
+                                    formControlName="edad" class="form-control" placeholder="Edad de persona" type="number" min="1">
+                                <div *ngIf="formPersona.get('edad')?.errors && formPersona.get('edad')?.invalid && (formPersona.get('edad')?.dirty || formPersona.get('edad')?.touched) "
+                                    class="invalid-feedback">
+                                    Campo obligatorio.
+                                </div>
+                            </div>
+                        </div>
+                    </div>                        
+                </form>
+            </div>
+            <div class="col-md-12 d-flex justify-content-end mt-1-i">
+                <div class="btn-group m-10">
+                    <button class="btn btn-success m-2" type="button" (click)="guardar()">guardar </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
